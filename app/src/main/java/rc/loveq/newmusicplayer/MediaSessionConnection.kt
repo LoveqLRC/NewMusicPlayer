@@ -97,12 +97,12 @@ class MediaSessionConnection(context: Context, serviceComponent: ComponentName) 
         @Volatile
         private var instance: MediaSessionConnection? = null
 
-        fun getInstance(context: Context, serviceComponent: ComponentName) {
+        fun getInstance(context: Context, serviceComponent: ComponentName) =
             instance ?: synchronized(this) {
                 instance ?: MediaSessionConnection(context, serviceComponent)
                     .also { instance = it }
             }
-        }
+
     }
 }
 

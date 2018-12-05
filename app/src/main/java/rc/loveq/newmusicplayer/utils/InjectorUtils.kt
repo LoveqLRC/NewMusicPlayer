@@ -13,10 +13,8 @@ import rc.loveq.newmusicplayer.viewmodels.MainActivityViewModel
 object InjectorUtils {
 
     private fun provideMediaSessionConnection(context: Context): MediaSessionConnection {
-        return MediaSessionConnection(
-            context,
-            ComponentName(context, MusicService::class.java)
-        )
+        return MediaSessionConnection.getInstance(context,
+            ComponentName(context,MusicService::class.java))
     }
 
     fun provideMainActivityViewModel(context: Context): MainActivityViewModel.Factory {
